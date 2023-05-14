@@ -5,6 +5,12 @@ import Image from 'react-bootstrap/Image';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Modalmovie.css'
 import axios from 'axios';
+import ConfModal from '../confModal/confModal'
+
+
+
+
+
 function Modalmovie(props) {
     const [text, setText] = useState('');
     let handlecomment = (e) => {
@@ -13,6 +19,7 @@ function Modalmovie(props) {
         setText(e.target.value);
         console.log(text);
     }
+    let [addingresponse, setaddingresponse] = useState('');
     let addToFav = async () => {
         let obj = {
             title: props.modalData.title,
@@ -20,9 +27,25 @@ function Modalmovie(props) {
             overview: props.modalData.overview,
             comment: text
         }
-        await axios.post(`http://localhost:3000/addFavMovie`, obj)
+        let response = await axios.post(`http://localhost:3000/addFavMovie`, obj)
+        setaddingresponse(response.data);
+        console.log(addingresponse);
         props.hideModal();
+        console.log(addingresponse.data);
+        showcofirmation();
     }
+
+    let [showFlag, setshowFlag] = useState(false);
+    let showcofirmation = () => {
+        setshowFlag(true);
+    }
+
+    let handleClose = () => {
+        setshowFlag(false);
+    }
+
+
+
     return (
         <>
 
@@ -45,7 +68,15 @@ function Modalmovie(props) {
                     </Button>
                 </Modal.Footer>
             </Modal>
+            <ConfModal show={showFlag} hide={handleClose} modalData={addingresponse} />
         </>
     );
 }
+
+
+
+
+
+
+
 export default Modalmovie;

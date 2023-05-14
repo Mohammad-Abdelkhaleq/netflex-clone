@@ -39,7 +39,7 @@ function Home() {
         settrendingTVweek(response.data);
     };
 
-    useEffect(() => { (tendingMoviesWeek()) }, []);
+    useEffect(() => {tendingMoviesWeek() }, []);
     useEffect(() => { (tendingMoviesDay()) }, []);
     useEffect(() => { (tendingsTVDay()) }, []);
     useEffect(() => { (tendingsTVweek()) }, []);
