@@ -27,7 +27,7 @@ function Modalmovie(props) {
             overview: props.modalData.overview,
             comment: text
         }
-        let response = await axios.post(`http://localhost:3000/addFavMovie`, obj)
+        let response = await axios.post(`https://onlineserver-f7ft.onrender.com/addFavMovie`, obj)
         setaddingresponse(response.data);
         console.log(addingresponse);
         props.hideModal();

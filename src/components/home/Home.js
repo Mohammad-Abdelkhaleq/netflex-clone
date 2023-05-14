@@ -9,7 +9,7 @@ function Home() {
 
     let [trendingMoviesWeek, settrendingMoviesWeek] = useState([]);
     let tendingMoviesWeek = async () => {
-        let serverUrl = 'http://localhost:3000/trending/movie/week';
+        let serverUrl = 'https://onlineserver-f7ft.onrender.com/trending/movie/week';
         let response = await axios.get(serverUrl);
         console.log("week movie", response.data);
         settrendingMoviesWeek(response.data);
@@ -17,7 +17,7 @@ function Home() {
 
     let [trendingMoviesDay, settrendingMoviesDay] = useState([]);
     let tendingMoviesDay = async () => {
-        let serverUrl = 'http://localhost:3000/trending/movie/day';
+        let serverUrl = 'https://onlineserver-f7ft.onrender.com/trending/movie/day';
         let response = await axios.get(serverUrl);
         console.log( "movie day",response.data);
         settrendingMoviesDay(response.data);
@@ -25,7 +25,7 @@ function Home() {
 
     let [trendingTVday, settrendingTVday] = useState([]);
     let tendingsTVDay = async () => {
-        let serverUrl = 'http://localhost:3000/trending/tv/day';
+        let serverUrl = 'https://onlineserver-f7ft.onrender.com/trending/tv/day';
         let response = await axios.get(serverUrl);
         console.log("tv day",response.data);
         settrendingTVday(response.data);
@@ -33,7 +33,7 @@ function Home() {
 
     let [trendingTVweek, settrendingTVweek] = useState([]);
     let tendingsTVweek = async () => {
-        let serverUrl = 'http://localhost:3000/trending/tv/week';
+        let serverUrl = 'https://onlineserver-f7ft.onrender.com/trending/tv/week';
         let response = await axios.get(serverUrl);
         console.log("tv week",response.data);
         settrendingTVweek(response.data);
