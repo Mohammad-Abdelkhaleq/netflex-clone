@@ -22,6 +22,7 @@ function Modalmovie(props) {
     let [addingresponse, setaddingresponse] = useState('');
     let addToFav = async () => {
         let obj = {
+            id: props.modalData.id,
             title: props.modalData.title,
             poster_path: props.modalData.poster_path,
             overview: props.modalData.overview,
